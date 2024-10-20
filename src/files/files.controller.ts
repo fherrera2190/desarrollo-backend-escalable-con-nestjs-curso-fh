@@ -27,7 +27,7 @@ export class FilesController {
     FileInterceptor('file', {
       fileFilter,
       storage: diskStorage({
-        destination: './static/uploads',
+        destination: './static/products',
         filename: fileName,
       }),
     }),
