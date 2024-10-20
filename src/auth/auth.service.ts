@@ -52,6 +52,7 @@ export class AuthService {
     if (!user) throw new UnauthorizedException('Credentials are not valid');
     if (!bcrypt.compareSync(password, user.password))
       throw new UnauthorizedException('Credentials are not valid');
+
     return user;
     //Retornar JWT
   }
