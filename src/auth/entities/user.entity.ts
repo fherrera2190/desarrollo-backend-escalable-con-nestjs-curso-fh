@@ -1,8 +1,10 @@
+import { Product } from 'src/products/entities';
 import {
   BeforeInsert,
   BeforeUpdate,
   Column,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 // import * as bcrypt from 'bcrypt';
@@ -21,7 +23,8 @@ export class User {
   isActive: boolean;
   @Column('text', { array: true, default: ['user'] })
   roles: string[];
-
+  @OneToMany(() => Product, (product) => product.user)
+  product: Product;
   // @BeforeInsert()
   // encryptPassword() {
   //   this.password = bcrypt.hashSync(this.password, 10);
