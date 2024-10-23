@@ -6,6 +6,9 @@ import { AppModule } from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
+
+  app.enableCors();
+
   const logger = new Logger('bootstrap ');
   app.setGlobalPrefix('api');
   app.useGlobalPipes(
@@ -22,6 +25,7 @@ async function bootstrap() {
     .build();
   const documentFactory = () => SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, documentFactory);
+
   await app.listen(process.env.PORT);
   logger.log(`Application is running on: ${process.env.PORT}`);
 }
