@@ -22,7 +22,9 @@ import { MessagesWsModule } from './messages-ws/messages-ws.module';
       password: process.env.DB_PASSWORD,
       autoLoadEntities: true,
       //Solo true para desarrollo
-      synchronize: true,
+      // synchronize: true,
+      // Solo agregar para bd en produccion
+      ssl: { rejectUnauthorized: false },
     }),
     ServeStaticModule.forRoot({ rootPath: join(__dirname, '..', 'public') }),
     ProductsModule,

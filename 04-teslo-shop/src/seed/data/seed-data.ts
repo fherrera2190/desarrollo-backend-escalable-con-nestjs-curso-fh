@@ -29,15 +29,15 @@ interface SeedData {
 export const initialData: SeedData = {
   users: [
     {
-      email: 'nemesis2190@example.com',
-      fullName: 'Nemesis Umbrella',
-      password: bcrypt.hashSync('admin123456A', 10),
+      email: 'test1@test.com',
+      fullName: 'test1 user',
+      password: bcrypt.hashSync('test1123456', 10),
       roles: ['admin'],
     },
     {
-      email: 'user2190@example.com',
-      fullName: 'test User',
-      password: bcrypt.hashSync('user123456A', 10),
+      email: 'test2@test.com',
+      fullName: 'test2 user',
+      password: bcrypt.hashSync('test2123456', 10),
       roles: ['user', 'super-user'],
     },
   ],
