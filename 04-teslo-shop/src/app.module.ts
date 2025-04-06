@@ -15,17 +15,18 @@ import { MessagesWsModule } from './messages-ws/messages-ws.module';
     ConfigModule.forRoot(),
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: process.env.DB_HOST,
-      port: +process.env.DB_PORT,
-      database: process.env.DB_NAME,
-      username: process.env.DB_USERNAME,
-      password: process.env.DB_PASSWORD,
+      url: process.env.DB_URL,
+      // host: process.env.DB_HOST,
+      // port: +process.env.DB_PORT,
+      // database: process.env.DB_NAME,
+      // username: process.env.DB_USERNAME,
+      // password: process.env.DB_PASSWORD,
       autoLoadEntities: true,
       //Solo true para desarrollo
       // synchronize: true,
       // Solo agregar para bd en produccion
-      ssl:
-        process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
+      // ssl:
+      //   process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
     }),
     ServeStaticModule.forRoot({ rootPath: join(__dirname, '..', 'public') }),
     ProductsModule,
