@@ -24,7 +24,8 @@ import { MessagesWsModule } from './messages-ws/messages-ws.module';
       //Solo true para desarrollo
       // synchronize: true,
       // Solo agregar para bd en produccion
-      ssl: { rejectUnauthorized: false },
+      ssl:
+        process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false,
     }),
     ServeStaticModule.forRoot({ rootPath: join(__dirname, '..', 'public') }),
     ProductsModule,
